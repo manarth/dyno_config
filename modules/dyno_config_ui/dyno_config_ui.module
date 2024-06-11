@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Hooks to add the user-interface handlers to the entity-type.
+ */
+
+declare(strict_types=1);
+
+use Drupal\dyno_config_ui\DynoConfigListBuilder;
+use Drupal\dyno_config_ui\Form\EditConditionCriteriaForm;
+use Drupal\dyno_config_ui\Form\EditConfigOverridesForm;
+use Drupal\dyno_config_ui\Form\EditForm;
+use Drupal\dyno_config_ui\Form\ToggleStatusForm;
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function dyno_config_ui_entity_type_build(array &$entity_types) {
+  /** @var \Drupal\Core\Entity\EntityTypeInterface[] $entity_types */
+  /** @var \Drupal\Core\Entity\EntityTypeInterface $definition */
+  $definition = &$entity_types['dyno_config'];
+
+  $definition->setListBuilderClass(DynoConfigListBuilder::class);
+
+  $definition->setFormClass('edit', EditForm::class);
+  $definition->setLinkTemplate('edit-form', '/admin/config/development/dyno_config/{dyno_config}/edit');
+
+  $definition->setFormClass('edit-conditions', EditConditionCriteriaForm::class);
+  $definition->setLinkTemplate('edit-conditions-form', '/admin/config/development/dyno_config/{dyno_config}/conditions');
+
+  $definition->setFormClass('edit-config-overrides', EditConfigOverridesForm::class);
+  $definition->setLinkTemplate('edit-config-overrides-form', '/admin/config/development/dyno_config/{dyno_config}/overrides');
+
+  $definition->setFormClass('toggle-status', ToggleStatusForm::class);
+  $definition->setLinkTemplate('enable', '/admin/config/development/dyno_config/{dyno_config}/enable');
+  $definition->setLinkTemplate('disable', '/admin/config/development/dyno_config/{dyno_config}/disable');
+
+}

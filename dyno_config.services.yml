@@ -1,0 +1,29 @@
+---
+services:
+
+  dyno_config.collection_registration:
+    class: Drupal\dyno_config\EventSubscriber\ConfigCollectionRegistration
+    arguments:
+      - '@dyno_config.manager'
+    tags:
+      - { name: event_subscriber }
+
+  dyno_config.config_override.abstract:
+    abstract: true
+    class: Drupal\dyno_config\Config\ConfigOverride
+
+  dyno_config.provider.entity:
+    class: Drupal\dyno_config\Entity\DynoConfig
+    factory: ['@dyno_config.manager', 'get']
+    public: false
+
+  dyno_config.provider.storage:
+    class: Drupal\Core\Config\StorageInterface
+    factory: ['@dyno_config.manager', 'getCollectionFor']
+    public: false
+
+  dyno_config.manager:
+    class: Drupal\dyno_config\Services\DynoConfigManager
+    arguments:
+      - '@entity_type.manager'
+      - '@config.storage'

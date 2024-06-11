@@ -1,0 +1,6 @@
+table.dyno-config.list-builder tr.config-disabled td {
+  opacity: 50%;
+}
+table.dyno-config.list-builder tr.config-disabled td:nth-child(6) {
+  opacity: 100%;
+}

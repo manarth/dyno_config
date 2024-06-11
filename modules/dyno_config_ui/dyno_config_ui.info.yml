@@ -1,0 +1,7 @@
+name: Dyno config UI
+description: User interface to manage dynamic configuration through the admin interface.
+type: module
+core_version_requirement: ^10.2 | ^11
+php: 8.2
+dependencies:
+  - dyno_config:dyno_config

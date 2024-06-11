@@ -1,0 +1,16 @@
+entity.dyno_config.edit_form:
+  route_name: entity.dyno_config.edit_form
+  title: 'Edit'
+  base_route: entity.dyno_config.edit_form
+
+entity.dyno_config.edit_conditions_form:
+  route_name: entity.dyno_config.edit_conditions_form
+  title: 'Conditions'
+  base_route: entity.dyno_config.edit_form
+  weight: 10
+
+entity.dyno_config.edit_config_overrides_form:
+  route_name: entity.dyno_config.edit_config_overrides_form
+  title: 'Overrides'
+  base_route: entity.dyno_config.edit_form
+  weight: 15

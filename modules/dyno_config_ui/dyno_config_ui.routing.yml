@@ -1,0 +1,60 @@
+---
+
+md.foobar:
+  path: '/foobar'
+  defaults:
+    _form: 'Drupal\dyno_config_ui\Form\FooForm'
+  requirements:
+    _access: 'TRUE'
+
+
+
+entity.dyno_config.collection:
+  path: '/admin/config/development/dyno_config'
+  defaults:
+    _entity_list: 'dyno_config'
+    _title: 'Dynamic configuration entities'
+  requirements:
+    _permission: 'administer site configuration+administer dyno config+view dyno config'
+
+entity.dyno_config.edit_form:
+  path: '/admin/config/development/dyno_config/{dyno_config}/edit'
+  defaults:
+    _entity_form: 'dyno_config.edit'
+    _title_callback: '\Drupal\dyno_config_ui\Form\EditForm::getTitle'
+  requirements:
+    _permission: 'administer site configuration+administer dynamic configuration+view dynamic configuration'
+
+entity.dyno_config.edit_conditions_form:
+  path: '/admin/config/development/dyno_config/{dyno_config}/conditions'
+  defaults:
+    _entity_form: 'dyno_config.edit-conditions'
+    _title_callback: '\Drupal\dyno_config_ui\Form\EditConditionCriteriaForm::getTitle'
+  requirements:
+    _permission: 'administer site configuration+administer dynamic configuration+view dynamic configuration'
+
+entity.dyno_config.edit_config_overrides_form:
+  path: '/admin/config/development/dyno_config/{dyno_config}/overrides'
+  defaults:
+    _entity_form: 'dyno_config.edit-config-overrides'
+    _title_callback: '\Drupal\dyno_config_ui\Form\EditConfigOverridesForm::getTitle'
+  requirements:
+    _permission: 'administer site configuration+administer dynamic configuration+view dynamic configuration'
+
+entity.dyno_config.enable:
+  path: '/admin/config/development/dyno_config/{dyno_config}/enable'
+  defaults:
+    _entity_form: 'dyno_config.toggle-status'
+    _title: 'Enable'
+    action: enable
+  requirements:
+    _permission: 'administer site configuration+administer dynamic configuration+view dynamic configuration'
+
+entity.dyno_config.disable:
+  path: '/admin/config/development/dyno_config/{dyno_config}/disable'
+  defaults:
+    _entity_form: 'dyno_config.toggle-status'
+    _title: 'Disable'
+    action: disable
+  requirements:
+    _permission: 'administer site configuration+administer dynamic configuration+view dynamic configuration'

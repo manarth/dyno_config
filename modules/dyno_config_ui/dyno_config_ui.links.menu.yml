@@ -1,0 +1,6 @@
+---
+entity.dyno_config.collection:
+  title: 'Dyno config'
+  parent: system.admin_config_development
+  description: 'Configure run-time configuration and the conditions where they are applied.'
+  route_name: entity.dyno_config.collection

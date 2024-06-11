@@ -1,0 +1,5 @@
+name: Dyno config
+description: Apply dynamic configuration during runtime using arbitrarily specified criteria.
+type: module
+core_version_requirement: ^10.2 | ^11
+php: 8.2
